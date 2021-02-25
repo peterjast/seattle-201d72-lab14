@@ -23,6 +23,23 @@ function clearCart() {}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
+  const tableBodyElem = document.getElementsByTagName('TBODY');
+  for (let i = 0; i < cart.length; i++) {
+    const trElement = document.createElement('tr');
+    const tdRemoveElement = document.createElement('td');
+    tdRemoveElement.textContent = 'X';
+    trElement.appendChild(tdRemoveElement);
+    // const buttonElem = document.createElement('button');
+    // tdRemoveElement.appendChild(buttonElem);
+    // buttonElem.textContent = 'X';
+    const tdQuantityElem = document.createElement('td');
+    tdQuantityElem.textContent = cart[i].quantity;
+    trElement.appendChild(tdQuantityElem);
+    const tdNameElem = document.createElement('td');
+    tdNameElem.textContent = cart[i].product;
+    trElement.appendChild(tdNameElem);
+    tableBodyElem.appendChild(trElement);
+  }
 
   // TODO: Find the table body
 
